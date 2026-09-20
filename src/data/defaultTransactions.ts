@@ -1,0 +1,131 @@
+import { Transaction } from '../types';
+
+function getDateOffset(daysAgo: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().split('T')[0];
+}
+
+export const INITIAL_TRANSACTIONS: Transaction[] = [
+  {
+    id: 1,
+    type: 'income',
+    amount: 145000,
+    category: 'Salary',
+    note: 'Monthly Senior Engineer Compensation',
+    date: getDateOffset(1),
+    account: 'Primary Checking',
+  },
+  {
+    id: 2,
+    type: 'expense',
+    amount: 32000,
+    category: 'Rent',
+    note: 'Studio Apartment Rent - Downtown',
+    date: getDateOffset(2),
+    account: 'Primary Checking',
+  },
+  {
+    id: 3,
+    type: 'expense',
+    amount: 4850,
+    category: 'Food',
+    note: 'Gourmet Grocery Restock & Supplies',
+    date: getDateOffset(3),
+    account: 'Neon Credit Card',
+  },
+  {
+    id: 4,
+    type: 'income',
+    amount: 28500,
+    category: 'Investment',
+    note: 'Quarterly Equity Dividend & Yield',
+    date: getDateOffset(5),
+    account: 'Zerodha / Demat',
+  },
+  {
+    id: 5,
+    type: 'expense',
+    amount: 2200,
+    category: 'Transport',
+    note: 'Metro Rail Smart Pass & Uber Mobility',
+    date: getDateOffset(6),
+    account: 'Neon Credit Card',
+  },
+  {
+    id: 6,
+    type: 'expense',
+    amount: 7499,
+    category: 'Entertainment',
+    note: 'Noise-Cancelling Studio Headset & Spotify',
+    date: getDateOffset(8),
+    account: 'Neon Credit Card',
+  },
+  {
+    id: 7,
+    type: 'expense',
+    amount: 3450,
+    category: 'Food',
+    note: 'Artisan Bistro Dinner with Team',
+    date: getDateOffset(11),
+    account: 'Neon Credit Card',
+  },
+  {
+    id: 8,
+    type: 'income',
+    amount: 18000,
+    category: 'Other',
+    note: 'Freelance Architecture Advisory',
+    date: getDateOffset(14),
+    account: 'Primary Checking',
+  },
+  {
+    id: 9,
+    type: 'expense',
+    amount: 5400,
+    category: 'Utilities',
+    note: 'Gigabit Fiber Internet & Cloud Server Hosting',
+    date: getDateOffset(17),
+    account: 'Primary Checking',
+  },
+  {
+    id: 10,
+    type: 'expense',
+    amount: 1950,
+    category: 'Health',
+    note: 'Monthly Bouldering & Athletic Gym Pass',
+    date: getDateOffset(21),
+    account: 'Neon Credit Card',
+  },
+  {
+    id: 11,
+    type: 'expense',
+    amount: 3100,
+    category: 'Food',
+    note: 'Weekly Fresh Produce & Pantry Essentials',
+    date: getDateOffset(24),
+    account: 'Neon Credit Card',
+  },
+  {
+    id: 12,
+    type: 'income',
+    amount: 12000,
+    category: 'Investment',
+    note: 'Treasury Bond Interest Distribution',
+    date: getDateOffset(27),
+    account: 'Zerodha / Demat',
+  },
+];
+
+export const CATEGORIES = [
+  { name: 'Food', icon: 'Utensils', color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.12)' },
+  { name: 'Rent', icon: 'Home', color: '#6366f1', bg: 'rgba(99, 102, 241, 0.12)' },
+  { name: 'Transport', icon: 'Car', color: '#06b6d4', bg: 'rgba(6, 182, 212, 0.12)' },
+  { name: 'Salary', icon: 'Briefcase', color: '#10b981', bg: 'rgba(16, 185, 129, 0.12)' },
+  { name: 'Investment', icon: 'TrendingUp', color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.12)' },
+  { name: 'Entertainment', icon: 'Gamepad2', color: '#ec4899', bg: 'rgba(236, 72, 153, 0.12)' },
+  { name: 'Utilities', icon: 'Zap', color: '#38bdf8', bg: 'rgba(56, 189, 248, 0.12)' },
+  { name: 'Health', icon: 'Activity', color: '#14b8a6', bg: 'rgba(20, 184, 166, 0.12)' },
+  { name: 'Shopping', icon: 'ShoppingBag', color: '#f43f5e', bg: 'rgba(244, 63, 94, 0.12)' },
+  { name: 'Other', icon: 'Layers', color: '#94a3b8', bg: 'rgba(148, 163, 184, 0.12)' },
+];
