@@ -1,0 +1,8 @@
+{
+  "name": "Balance Ledger",
+  "description": "Professional personal financial ledger and liability management system featuring zero-trust vault security, transaction tracking, credit card accounting, peer debt management, and salary allocations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
