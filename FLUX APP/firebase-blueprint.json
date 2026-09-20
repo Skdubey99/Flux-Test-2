@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User credential and profile data stored in Firebase",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "uid": { "type": "string", "maxLength": 128 },
+        "loginId": { "type": "string", "maxLength": 64, "pattern": "^[a-z0-9_.-]+$" },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 150 },
+        "avatarColor": { "type": "string", "maxLength": 30 },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "status": { "type": "string", "enum": ["active", "suspended"] },
+        "passwordHash": { "type": "string", "maxLength": 128 },
+        "salt": { "type": "string", "maxLength": 64 },
+        "authProvider": { "type": "string", "enum": ["firebase_google", "login_id"] },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "lastLoginAt": { "type": "string", "maxLength": 64 },
+        "vaultVersion": { "type": "number" }
+      },
+      "required": ["id", "loginId", "name", "role", "status"]
+    },
+    "UserVault": {
+      "title": "UserVault",
+      "description": "Partitioned financial ledger data for a user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "loginId": { "type": "string", "maxLength": 64 },
+        "transactions": { "type": "array" },
+        "creditCards": { "type": "array" },
+        "friendBorrowings": { "type": "array" },
+        "todos": { "type": "array" },
+        "salaryConfig": { "type": "object" },
+        "currency": { "type": "object" },
+        "uiColor": { "type": "string", "maxLength": 30 },
+        "headerStyle": { "type": "string", "maxLength": 50 },
+        "theme": { "type": "string", "enum": ["dark", "light"] },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["userId", "loginId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User account credentials and profile records"
+    },
+    "/vaults/{userId}": {
+      "schema": "UserVault",
+      "description": "Isolated financial vault and ledger records"
+    }
+  }
+}
